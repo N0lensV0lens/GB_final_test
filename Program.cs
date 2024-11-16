@@ -52,3 +52,19 @@ class Program
         return shortStrings;
     }
 
+    static void Main()
+    {
+        int inputSize = GetUserInputSize();
+        string[] shortStrings = GetUserInput(inputSize);
+
+        // Проверка на наличие в массиве строк длиной <= 3
+        if (shortStrings.Length > 0)
+        {
+            Console.Write($"Строки длиной <= 3 символа: {string.Join(", ", shortStrings)}");
+        }
+        else
+        {
+            Console.WriteLine("Введённые строки не удовлетворяют условию задания :(");
+        }
+    }
+}
