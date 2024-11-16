@@ -20,3 +20,35 @@ class Program
         }
     }
 
+    static string[] GetUserInput(int size)
+    {
+        string[] inputs = new string[size];
+
+        // Запрос ввода текста
+        for (int i = 0; i < size; i++)
+        {
+            Console.Write($"Осталось ввести строк {size - i}: ");
+            inputs[i] = Console.ReadLine();
+        }
+
+        // Создаём новый массив для строк длиной <= 3
+        string[] shortStrings = new string[size];
+        int count = 0;
+
+        // Сохраняем строки длиной <= 3 в новый массив
+        for (int i = 0; i < size; i++)
+        {
+            if (inputs[i].Length <= 3 && !string.IsNullOrWhiteSpace(inputs[i]))
+            {
+                shortStrings[count] = inputs[i];
+                count++;
+            }
+            else
+            {
+                shortStrings = [];
+            }
+        }
+
+        return shortStrings;
+    }
+
